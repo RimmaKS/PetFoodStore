@@ -45,3 +45,6 @@ admin@gmail.com (администратор)
 Оформление заказа. 
 Просмотр истории заказов. 
 Редактирование своего профиля.
+
+Ссылка на схему и скрипт БД. Backup link:
+https://drive.google.com/drive/folders/181BTxiZPtlszA38IXhX-olTqBcx-Zxvb?usp=sharing
