@@ -24,11 +24,11 @@ public class ZooprojectController extends HttpServlet {
 
 	@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String requestUri = req.getRequestURI().toLowerCase();
+        String requestUri = req.getRequestURI().toLowerCase();        
 
         Service currentService = SERVICE_FACTORY.getService(requestUri);
         try {
-          currentService.execute(req, resp);
+          currentService.execute(req, resp);          
         } catch (ParseException | SQLException e) {
 			logger.log(Level.ERROR, "Exception in Controller");
 			logger.info(e.getClass().getName());

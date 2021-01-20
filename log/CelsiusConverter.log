@@ -1,5 +1,0 @@
-2021-01-19 22:20:48,258 ERROR c.e.t.z.d.OrderDAO [main] SQL Exception!
-2021-01-19 22:20:48,264 INFO c.e.t.z.d.OrderDAO [main] SQL Error Type : java.sql.SQLException
-2021-01-19 22:20:48,265 INFO c.e.t.z.d.OrderDAO [main] Error Message  : Parameter index out of range (5 > number of parameters, which is 4).
-2021-01-19 22:20:48,265 INFO c.e.t.z.d.OrderDAO [main] Error Code     : 0
-2021-01-19 22:20:48,265 INFO c.e.t.z.d.OrderDAO [main] SQL State      : S1009
