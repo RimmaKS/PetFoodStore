@@ -1,0 +1,24 @@
+# PetFoodStore
+Web Development Course Project
+
+Использованы данные версии программ: 1) Eclipse IDE for Enterprise Java Developers (includes Incubating components) Version: 2020-09 (4.17.0) Build id: 20200910-1200 OS: Windows 10, v.10.0, x86_64 / win32 Java version: 13.0.1 2) Apache Tomcat Version 9.0.30 3) MySQL Server version: 5.7.29-log MySQL Community Server (GPL)
+
+Никаких изменений с настройках Tomcat не производилось. Схема базы данных отправлена вместе со ссылкой на этот проект.
+
+Скрипт для mysql находится в папке /zooproject/src/main/resources/zooproject_db_script.sql
+
+При запуске создается база данных, пользователь используемый в дальнейшем в (/zooproject/src/main/resources/dbconnection.properties), таблицы и пользователи приложения для тестирования.
+
+Пароль для всех, указанных ниже, трех пользователей 2020epam
+
+janedoe@gmail.com ivan@gmail.com admin@gmail.com (администратор)
+
+Возможности администратора: Регистрация пользователя. Регистрация пользователя с правами администратора. Изменение свойств товара. Добавление нового товара в базу данных. Деактивация пользователей. Редактирование своего профиля.
+
+Ограничение Администратора: Нет возможности сделать заказ.
+
+Возможности Не Зарегистрированного Пользователя: Только просмотр товара.
+
+Возможности Зарегистрированного Пользователя: Добавление товара в корзину. Оформление заказа. Просмотр истории заказов. Редактирование своего профиля.
+
+Ссылка на схему и скрипт БД. Backup link: https://drive.google.com/drive/folders/181BTxiZPtlszA38IXhX-olTqBcx-Zxvb?usp=sharing
