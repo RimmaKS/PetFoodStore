@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking = "true" path="/zooproject">
+    <!-- Specify a JDBC datasource -->
+    <Resource name="jdbc/dbconnection"
+              auth="Container"
+              type="javax.sql.DataSource" 
+              username="zooadmin" 
+              password="2020epam"
+              driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/zooproject?autoReconnect=true"
+              validationQuery="select 1"
+              maxActive="32" 
+              maxIdle="8"
+              maxWait="10000"/>
+</Context>
