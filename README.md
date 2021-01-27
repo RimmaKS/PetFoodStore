@@ -46,5 +46,18 @@ admin@gmail.com (администратор)
 Просмотр истории заказов. 
 Редактирование своего профиля.
 
-Ссылка на схему и скрипт БД. Backup link:
+
+Инструкция по картинкам:
+Папка с картинками "images", находится по ссылке ниже. Архив следует разархивировать в папку D:/images/.
+База данных хранит название картинки с расширением файла. 
+Путь файла хранится в параметрах web.xml
+
+Либо заменить местоположение папки на нужный путь в параметрах web.xml:
+<context-param>
+    <param-name>ImageLocation</param-name>
+    <param-value>D:/images/</param-value>
+</context-param>
+
+
+Ссылка на схему, скрипт БД, папка с картинками Backup link:
 https://drive.google.com/drive/folders/181BTxiZPtlszA38IXhX-olTqBcx-Zxvb?usp=sharing
