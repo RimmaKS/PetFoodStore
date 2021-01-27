@@ -1,5 +1,3 @@
-# All code located in master branch
-
 # PetFoodStore
 Web Development Course Project  
 
