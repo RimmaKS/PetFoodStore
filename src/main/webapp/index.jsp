@@ -26,7 +26,8 @@
 <div class="page-container"> 	
 
 <a href="<c:url value="index.jsp"> 
-</c:url>"><img border="0" alt="mainpic" class="center-pic" src= '<c:url value="${initParam['imageLocation']}main_logo.png"/>'></a>
+</c:url>"><img border="0" alt="mainpic" class="center-pic" src= "${pageContext.request.contextPath}/ImageServlet?imageName=main_logo.png"/></a>
+
 </div>
 </body>
 </html>

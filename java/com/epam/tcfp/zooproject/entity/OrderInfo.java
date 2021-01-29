@@ -148,7 +148,5 @@ public class OrderInfo implements Serializable{
 		return "OrderInfo [orderid=" + orderid + ", orderStatus=" + orderStatus + ", userid=" + userid + ", totalCost="
 				+ totalCost + ", productTitle=" + productTitle + ", productPrice=" + productPrice + ", productQuantity="
 				+ productQuantity + "]";
-	}
-	
-	
+	}	
 }

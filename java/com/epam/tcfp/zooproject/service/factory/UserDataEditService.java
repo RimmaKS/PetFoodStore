@@ -11,7 +11,7 @@ import com.epam.tcfp.zooproject.dao.UserDAO;
 import com.epam.tcfp.zooproject.entity.User;
 
 public class UserDataEditService implements Service {
-    private UserDAO userDAO = new UserDAO();
+    private final UserDAO userDAO = new UserDAO();
 	public static final String FIRST_NAME = "firstName";
 	public static final String LAST_NAME = "lastName";
 	public static final String EMAIL = "email";

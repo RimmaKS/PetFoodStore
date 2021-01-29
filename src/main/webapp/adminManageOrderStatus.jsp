@@ -50,8 +50,30 @@
 		<c:forEach var="order" items="${sessionScope.allOrders}" varStatus="iterationCount">
 	<tr>
 		<td>${order.id}</td>
-		<td>${order.totalCost}</td>
-		<td>${order.statusId}</td>			  
+		<td>${order.totalCost}</td>		
+		<td>
+		<c:if test="${order.statusId eq '1'}">
+		<c:out value="New" />
+		</c:if>
+		<c:if test="${order.statusId eq '2'}">
+		<c:out value="Checkout" />
+		</c:if>
+		<c:if test="${order.statusId eq '3'}">
+		<c:out value="Paid" />
+		</c:if>
+		<c:if test="${order.statusId eq '4'}">
+		<c:out value="Failed" />
+		</c:if>
+		<c:if test="${order.statusId eq '5'}">
+		<c:out value="Shipped" />
+		</c:if>
+		<c:if test="${order.statusId eq '6'}">
+		<c:out value="Delivered" />
+		</c:if>
+		<c:if test="${order.statusId eq '7'}">
+		<c:out value="Returned" />
+		</c:if>
+		</td>			  
 		<td>
 		<form action="updateOrderStatus" method="post">
    		<br><label for="orderStatus"><b><fmt:message key="label.order.status"/></b></label>

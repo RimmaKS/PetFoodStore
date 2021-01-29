@@ -12,7 +12,7 @@ import com.epam.tcfp.zooproject.dao.UserDAO;
 import com.epam.tcfp.zooproject.entity.User;
 
 public class UserLoginService implements Service{
-    private UserDAO userDAO = new UserDAO();
+    private final UserDAO userDAO = new UserDAO();
     public static final String LOGIN_STATUS = "loginStatus";
 	public static final String EMAIL = "email";
 	public static final String PASSWORD = "password";

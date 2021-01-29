@@ -31,10 +31,10 @@ public class UserDAO {
 	public static final String MOBILE = "mobile";
 	public static final String ADMIN_USER = "isAdmin";
 	
-	private static final String QUERY_INSERT = "INSERT INTO user (`firstName`, `lastName`, `mobile`, `email`, `passwordHash`, `isAdmin`) VALUES (?, ?, ?, ?, ?, ?);";
+	private static final String QUERY_INSERT = "INSERT INTO user (firstName, lastName, mobile, email, passwordHash, isAdmin) VALUES (?, ?, ?, ?, ?, ?);";
 	private static final String QUERY_UPDATE = "UPDATE user SET firstName = ?, lastName = ?, mobile = ?, email = ?, passwordHash = ? WHERE email = ?;";
 	private static final String QUERY_DEACTIVATE = "UPDATE user SET isActive = ? WHERE email = ?;";
-	private static final String QUERY_VALIDATE_USER = "SELECT * from `user` WHERE email = ? AND passwordHash = ?";
+	private static final String QUERY_VALIDATE_USER = "SELECT * from user WHERE email = ? AND passwordHash = ?";
 	private static final String QUERY_SELECT_BY_EMAIL = "SELECT * FROM user WHERE email = ?";
 	private static final String QUERY_SELECT_ALL_USERS = "SELECT * FROM user;";
 
@@ -139,20 +139,8 @@ public class UserDAO {
 				user.setMobile(resultSet.getString(MOBILE));
 				user.setEmail(resultSet.getString(EMAIL));
 				user.setPassword(resultSet.getString(PASSWORD_HASH));
-				// поменять на тернарный
-				String isAdmin = resultSet.getString(ADMIN_USER);
-				if (isAdmin.equalsIgnoreCase("0")) {
-					user.setAdmin(false);
-				} else {
-					user.setAdmin(true);
-				}
-
-				String isActive = resultSet.getString(ACTIVE_USER);
-				if (isActive.equalsIgnoreCase("0")) {
-					user.setActive(false);
-				} else {
-					user.setActive(true);
-				}
+				user.setAdmin(validateIfAdmin(resultSet.getString(ADMIN_USER)));
+				user.setActive(validateIfActive(resultSet.getString(ACTIVE_USER)));
 			}
 		} catch (SQLException e) {
 			logger.log(Level.ERROR, EXCEPTION_MSG);
@@ -178,18 +166,8 @@ public class UserDAO {
 				user.setMobile(resultSet.getString(MOBILE));
 				user.setEmail(resultSet.getString(EMAIL));
 				user.setPassword(resultSet.getString(PASSWORD_HASH));
-				String isAdmin = resultSet.getString(ADMIN_USER);
-				if (isAdmin.equalsIgnoreCase("0")) {
-					user.setAdmin(false);
-				} else {
-					user.setAdmin(true);
-				}
-				String isActive = resultSet.getString(ACTIVE_USER);
-				if (isActive.equalsIgnoreCase("0")) {
-					user.setActive(false);
-				} else {
-					user.setActive(true);
-				}
+				user.setAdmin(validateIfAdmin(resultSet.getString(ADMIN_USER)));
+				user.setActive(validateIfActive(resultSet.getString(ACTIVE_USER)));
 				users.add(user); 
 			}
 		} catch (SQLException e) {
@@ -219,4 +197,26 @@ public class UserDAO {
 		}
 		return isDeactivated;
 	}
+	
+	public boolean validateIfAdmin(String adminValue) {
+		boolean isAdmin = false;
+				
+		if (adminValue.equalsIgnoreCase("0")) {
+			isAdmin = false;
+		} else {
+			isAdmin = true;
+		}		
+		return isAdmin;
+	}
+	
+	public boolean validateIfActive(String activeValue) {
+		boolean isActive = false;
+				
+		if (activeValue.equalsIgnoreCase("0")) {
+			isActive = false;
+		} else {
+			isActive = true;
+		}		
+		return isActive;
+	}	
 }

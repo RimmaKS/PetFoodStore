@@ -13,7 +13,7 @@ import com.epam.tcfp.zooproject.entity.Product;
 import com.epam.tcfp.zooproject.entity.ShoppingCart;
 
 public class ChangeAmountInShoppingCartService implements Service {
-	private ProductDAO productDAO = new ProductDAO();
+	private final ProductDAO productDAO = new ProductDAO();
 	public static final String PRODUCT_TO_CHANGE = "productToChange";
 	public static final String PRODUCT_QUANTITY = "quantityToChange";
 	public static final String SHOPPING_CART = "shoppingCart";

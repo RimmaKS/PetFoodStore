@@ -16,7 +16,7 @@ import com.epam.tcfp.zooproject.entity.Product;
 
 
 public class ProductAddService implements Service {
-	private ProductDAO productDAO = new ProductDAO();
+	private final ProductDAO productDAO = new ProductDAO();
 	public static final String PASS_TO_ADD = "passtoaddnew";
 	public static final String ACTION = "action";
 	public static final String ADD_PRODUCT = "addproduct";
@@ -46,7 +46,17 @@ public class ProductAddService implements Service {
 			toPage = "adminAddProduct.jsp";
 		}
 		
-		if(action.equalsIgnoreCase(PASS_TO_ADD)) {		
+		if(action.equalsIgnoreCase(PASS_TO_ADD)) {        
+        productDAO.insertProduct(createProduct(request));        
+		ArrayList<Product> products = (ArrayList<Product>)productDAO.getProducts();		
+		session.setAttribute(PRODUCTS, products);      
+		session.setAttribute(PRODUCT_ADD_STATUS, UPDATE_STATUS);
+        toPage = "adminManageProducts.jsp";
+		}
+		response.sendRedirect(toPage);
+	}
+	
+	public Product createProduct(HttpServletRequest request) {
 		String title = request.getParameter(PRODUCT_TITLE);
         String brand = request.getParameter(PRODUCT_BRAND);
         String form = request.getParameter(PRODUCT_FORM); 
@@ -56,26 +66,20 @@ public class ProductAddService implements Service {
         String animalType = request.getParameter(PRODUCT_ANIMAL_TYPE);
         String summary = request.getParameter(PRODUCT_SUMMARY);
         String price = request.getParameter(PRODUCT_PRICE);
-        String quantity = request.getParameter(PRODUCT_QUANTITY);
-        
-        Product product = new Product();
-        product.setTitle(title);
-        product.setBrand(brand);
-        product.setForm(form);
-        product.setBreed(breed);
-        product.setAgeRate(age);
-        product.setWeight(weight);
-        product.setAnimalType(animalType);
-        product.setSummary(summary);
-        product.setPrice(BigDecimal.valueOf(Float.parseFloat(price)));
-        product.setQuantity(Long.parseLong(quantity));
-        
-        productDAO.insertProduct(product);        
-		ArrayList<Product> products = (ArrayList<Product>)productDAO.getProducts();		
-		session.setAttribute(PRODUCTS, products);      
-		session.setAttribute(PRODUCT_ADD_STATUS, UPDATE_STATUS);
-        toPage = "adminManageProducts.jsp";
-		}
-		response.sendRedirect(toPage);
-	}
+        String quantity = request.getParameter(PRODUCT_QUANTITY);             
+                
+        Product product = new Product.Builder(title)
+				.brand(brand)
+				.form(form)
+				.breed(breed)
+				.ageRate(age)
+				.weight(weight)
+				.animalType(animalType)
+				.summary(summary)
+				.price(BigDecimal.valueOf(Float.parseFloat(price)))
+				.quantity(Long.parseLong(quantity))
+				.build();
+        return product;
+	}	
+	
 }

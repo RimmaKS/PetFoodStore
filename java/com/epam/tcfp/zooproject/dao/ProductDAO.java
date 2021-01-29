@@ -60,7 +60,7 @@ public class ProductDAO {
 	private static final String QUERY_GET_ANIMAL_TYPE_ID = "SELECT id FROM type_of_animal WHERE type = ?;";
 	private static final String QUERY_GET_WEIGHT_ID = "SELECT id FROM weight WHERE weight = ?;";
 	private static final String QUERY_UPDATE = "UPDATE product SET title = ?, brand = ?, form = ?, breed = ?, age = ?, weight = ?, type_of_animal = ?, summary = ?, price = ?, quantity = ? WHERE id = ?;";
-	private static final String QUERY_INSERT = "INSERT INTO product (`title`, `brand`, `form`, `breed`, `age`, `weight`, `type_of_animal`, `summary`, `price`, quantity) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+	private static final String QUERY_INSERT = "INSERT INTO product (title, brand, form, breed, age, weight, type_of_animal, summary, price, quantity) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 	private static final String QUERY_SUBTRACT_AMOUNT = "UPDATE product SET quantity = quantity - ? WHERE id = ?;";
 
 	public Product selectProduct(long id) {
@@ -71,23 +71,22 @@ public class ProductDAO {
 			ResultSet resultSet = statement.executeQuery();
 
 			while (resultSet.next()) {
-				product = new Product();
-				product.setId(resultSet.getLong(ID));
-				product.setTitle(resultSet.getString(TITLE));
-				product.setBrand(resultSet.getString(BRAND));
-				product.setForm(resultSet.getString(FORM));
-				product.setBreed(resultSet.getString(BREED));
-				product.setAgeRate(resultSet.getString(AGE_RATE));
-
 				String weigth = resultSet.getString(WEIGHT);
 				String measure = resultSet.getString(MEASURE);
-				product.setWeight(weigth + " " + measure);
-
-				product.setAnimalType(resultSet.getString(TYPE));
-				product.setSummary(resultSet.getString(SUMMARY));
-				product.setPrice(resultSet.getBigDecimal(PRICE));
-				product.setQuantity(resultSet.getLong(QUANTITY));
-				product.setImage(resultSet.getString(IMAGE));
+				
+				product = new Product.Builder(resultSet.getString(TITLE))
+						.id(resultSet.getLong(ID))
+						.brand(resultSet.getString(BRAND))
+						.form(resultSet.getString(FORM))
+						.breed(resultSet.getString(BREED))
+						.ageRate(resultSet.getString(AGE_RATE))
+						.weight(weigth + " " + measure)
+						.animalType(resultSet.getString(TYPE))
+						.summary(resultSet.getString(SUMMARY))
+						.price(resultSet.getBigDecimal(PRICE))
+						.quantity(resultSet.getLong(QUANTITY))
+						.image(resultSet.getString(IMAGE))
+						.build();
 			}
 		} catch (SQLException e) {
 			logger.log(Level.ERROR, EXCEPTION_MSG);
@@ -107,23 +106,21 @@ public class ProductDAO {
 			ResultSet resultSet = statement.executeQuery();
 
 			while (resultSet.next()) {
-				product = new Product();
-				product.setId(resultSet.getLong(ID));
-				product.setTitle(resultSet.getString(TITLE));
-				product.setBrand(resultSet.getString(BRAND));
-				product.setForm(resultSet.getString(FORM));
-				product.setBreed(resultSet.getString(BREED));
-				product.setAgeRate(resultSet.getString(AGE_RATE));
-
 				String weigth = resultSet.getString(WEIGHT);
-				String measure = resultSet.getString(MEASURE);
-				product.setWeight(weigth + " " + measure);
-
-				product.setAnimalType(resultSet.getString(TYPE));
-				product.setSummary(resultSet.getString(SUMMARY));
-				product.setPrice(resultSet.getBigDecimal(PRICE));
-				product.setQuantity(resultSet.getLong(QUANTITY));
-				product.setImage(resultSet.getString(IMAGE));
+				String measure = resultSet.getString(MEASURE);				
+				product = new Product.Builder(resultSet.getString(TITLE))
+						.id(resultSet.getLong(ID))
+						.brand(resultSet.getString(BRAND))
+						.form(resultSet.getString(FORM))
+						.breed(resultSet.getString(BREED))
+						.ageRate(resultSet.getString(AGE_RATE))
+						.weight(weigth + " " + measure)
+						.animalType(resultSet.getString(TYPE))
+						.summary(resultSet.getString(SUMMARY))
+						.price(resultSet.getBigDecimal(PRICE))
+						.quantity(resultSet.getLong(QUANTITY))
+						.image(resultSet.getString(IMAGE))
+						.build();
 				products.add(product);
 			}
 		} catch (SQLException e) {
@@ -336,5 +333,5 @@ public class ProductDAO {
 			logger.info(SQL_STATE + e.getSQLState());
 		}
 		return id;
-	}
+	}			
 }

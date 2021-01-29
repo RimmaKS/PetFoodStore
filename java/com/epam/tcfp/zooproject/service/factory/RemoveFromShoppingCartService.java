@@ -12,7 +12,7 @@ import com.epam.tcfp.zooproject.entity.Product;
 import com.epam.tcfp.zooproject.entity.ShoppingCart;
 
 public class RemoveFromShoppingCartService implements Service {
-	private ProductDAO productDAO = new ProductDAO();
+	private final ProductDAO productDAO = new ProductDAO();
 	public static final String CART_EDIT_STATUS = "cartEditStatus";
 	public static final String PRODUCT_TO_REMOVE = "productToRemove";
 	public static final String SHOPPING_CART = "shoppingCart";

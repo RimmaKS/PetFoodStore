@@ -28,10 +28,10 @@ public class UserAddressDAO {
 	public static final String APARTMENT = "apartment";
 	public static final String ZIP_CODE = "zip_code";
 
-	private static final String QUERY_INSERT = "INSERT INTO `user_address` (`user`, `country`, `region`, `city`, `street`, `building`, `apartment`, `zip_code`) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
-	private static final String QUERY_GET_ADDRESS_ID = "SELECT id FROM `user_address` WHERE user = ?";
-	private static final String QUERY_GET_ADDRESS_BY_ID = "SELECT * FROM `user_address` WHERE user = ?";
-	private static final String QUERY_UPDATE = "UPDATE `user_address` SET country = ?, region = ?, city = ?, street = ?, building = ?, apartment = ?, zip_code = ? WHERE user = ?;";
+	private static final String QUERY_INSERT = "INSERT INTO user_address (user, country, region, city, street, building, apartment, zip_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+	private static final String QUERY_GET_ADDRESS_ID = "SELECT id FROM user_address WHERE user = ?";
+	private static final String QUERY_GET_ADDRESS_BY_ID = "SELECT * FROM user_address WHERE user = ?";
+	private static final String QUERY_UPDATE = "UPDATE user_address SET country = ?, region = ?, city = ?, street = ?, building = ?, apartment = ?, zip_code = ? WHERE user = ?;";
 
 	public String insertAddress(UserAddress userAddress) {
 		String result = "";

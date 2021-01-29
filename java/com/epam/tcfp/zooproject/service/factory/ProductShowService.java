@@ -12,7 +12,7 @@ import com.epam.tcfp.zooproject.dao.ProductDAO;
 import com.epam.tcfp.zooproject.entity.Product;
 
 public class ProductShowService implements Service {
-	private ProductDAO productDAO = new ProductDAO();
+	private final ProductDAO productDAO = new ProductDAO();
 	public static final String PRODUCTS = "products";
 	public static final String EDIT_PAGE = "editpage";
 	
@@ -24,8 +24,7 @@ public class ProductShowService implements Service {
 		HttpSession session = request.getSession(true);
 		ArrayList<Product> products = (ArrayList<Product>)productDAO.getProducts();		
 		
-		session.setAttribute(PRODUCTS, products);
-		
+		session.setAttribute(PRODUCTS, products);		
 		
 		String toEdit = request.getParameter(EDIT_PAGE);		
 		if(toEdit != null && toEdit.equalsIgnoreCase(EDIT_PAGE)) {

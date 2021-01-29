@@ -28,8 +28,8 @@
 	<tr>
 	<td>							
 		<div class="card">						
-		<div id="productimage">
-  			<img src="${initParam['imageLocation']}${product.image}" alt="Pet Food" style="width:50%">
+		<div id="productimage">  			
+        <img src="${pageContext.request.contextPath}/ImageServlet?imageName=${product.image}" alt="Pet Food" style="width:50%"/>
 		</div>
 						
   		<div id="productinfo">

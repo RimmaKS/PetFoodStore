@@ -29,7 +29,7 @@ public class ShopingCardDAO {
 	public static final String SUMMARY = "summary";
 	public static final String PRICE = "price";
 	public static final String DISCOUNT = "discount";
-	
+
 	private static final String QUERY_SELECT_BY_ID = "SELECT product.id, product.title, brand.brand, form.form, breed.breed, age.age_rate, weight.weight, weight.measure, type.type, product.summary, product.price, product.quantity\r\n"
 			+ "FROM product product\r\n" + "LEFT JOIN brand brand\r\n" + "ON product.brand = brand.id\r\n"
 			+ "LEFT JOIN form form\r\n" + "ON product.form = form.id  \r\n" + "LEFT JOIN breed breed\r\n"
@@ -45,23 +45,16 @@ public class ShopingCardDAO {
 			ResultSet resultSet = statement.executeQuery();
 
 			while (resultSet.next()) {
-				product = new Product();
-				product.setId(resultSet.getLong(ID));
-				product.setTitle(resultSet.getString(TITLE));
-				product.setBrand(resultSet.getString(BRAND));
-				product.setForm(resultSet.getString(FORM));
-				product.setBreed(resultSet.getString(BREED));
-				product.setAgeRate(resultSet.getString(AGE_RATE));
-
 				String weigth = resultSet.getString(WEIGHT);
 				String measure = resultSet.getString(MEASURE);
-				product.setWeight(weigth + " " + measure);
 
-				product.setAnimalType(resultSet.getString(TYPE));
-				product.setSummary(resultSet.getString(SUMMARY));
-				product.setPrice(resultSet.getBigDecimal(PRICE));
-				product.setDiscount(resultSet.getFloat(DISCOUNT));
-				product.setQuantity(0);
+				product = new Product.Builder(resultSet.getString(TITLE))
+						.id(resultSet.getLong(ID))
+						.brand(resultSet.getString(BRAND)).form(resultSet.getString(FORM))
+						.breed(resultSet.getString(BREED)).ageRate(resultSet.getString(AGE_RATE))
+						.weight(weigth + " " + measure).animalType(resultSet.getString(TYPE))
+						.summary(resultSet.getString(SUMMARY)).price(resultSet.getBigDecimal(PRICE)).quantity(0)
+						.build();
 			}
 		} catch (SQLException e) {
 			logger.log(Level.ERROR, EXCEPTION_MSG);

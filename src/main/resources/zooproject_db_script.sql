@@ -35,13 +35,13 @@ values
 CREATE TABLE `zooproject`.`user_address` (
 `id` BIGINT NOT NULL AUTO_INCREMENT,
 `user` BIGINT NOT NULL DEFAULT 0,
-`country` VARCHAR(100) NULL DEFAULT "Unknown",
-`region` VARCHAR(100) NULL DEFAULT "Unknown",
-`city` VARCHAR(100) NULL DEFAULT "Unknown",
-`street` VARCHAR(100) NULL DEFAULT "Unknown",
-`building` VARCHAR(100) NULL DEFAULT "Unknown",
-`apartment` VARCHAR(100) NULL DEFAULT "Unknown",
-`zip_code` VARCHAR(100) NULL DEFAULT "Unknown",
+`country` VARCHAR(85) NULL DEFAULT "Unknown",
+`region` VARCHAR(50) NULL DEFAULT "Unknown",
+`city` VARCHAR(85) NULL DEFAULT "Unknown",
+`street` VARCHAR(50) NULL DEFAULT "Unknown",
+`building` VARCHAR(10) NULL DEFAULT "Unknown",
+`apartment` VARCHAR(10) NULL DEFAULT "Unknown",
+`zip_code` VARCHAR(16) NULL DEFAULT "Unknown",
 UNIQUE INDEX `uq_user` (`user` ASC),
 PRIMARY KEY (`id`),
 FOREIGN KEY (`user`)
@@ -192,7 +192,7 @@ values
 ('Poodle Pouch',2,2,1,1,8,3,'Complete and balanced nutrition for adult Poodles over 10 months old',51.79,0,36),
 ('Yorkshire Terrier Pouch',2,2,1,1,8,3,'Royal Canin Yorkshire Terrier Adult wet dog food is designed to meet the nutritional needs of purebred Yorkshire Terriers 10 months and older',52.79,0,78),
 ('Poodle Adult Dry',2,1,1,1,1,3,'Royal Canin Poodle Adult dry dog food is designed to meet the nutritional needs of purebred Poodles 10 months and older',53.79,0,25),
-('Poodle Adult Dry',2,1,1,1,13,3,'Royal Canin Poodle Adult dry dog food is designed to meet the nutritional needs of purebred Poodles 10 months and older',54.79,0,36);    
+('Poodle Adult Dry',2,1,1,1,13,3,'Royal Canin Poodle Adult dry dog food is designed to meet the nutritional needs of purebred Poodles 10 months and older',54.79,0,0);    
 
 UPDATE `zooproject`.`product` SET age = 3 
 WHERE id = 1

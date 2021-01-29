@@ -83,7 +83,7 @@
 			<c:param name="editProduct" value="post"/>
 			<c:param name="producttoedit" value="${product.id}"/>
 			<c:set var="fillForm" value="fillForm" scope="session"/>		
-			</c:url>"><img border="0" alt="edituser" src= '<c:url value="${initParam['imageLocation']}editlogo.jpg"/>' width="30" height="30"></a>
+			</c:url>"><img border="0" alt="edituser" src= "${pageContext.request.contextPath}/ImageServlet?imageName=editlogo.jpg" width="30" height="30"></a>
 		</td>
 	
 	</tr>

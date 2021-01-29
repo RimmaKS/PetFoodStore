@@ -12,7 +12,7 @@ import com.epam.tcfp.zooproject.entity.Product;
 import com.epam.tcfp.zooproject.entity.ShoppingCart;
 
 public class AddToShoppingCartService implements Service {
-	private ProductDAO productDAO = new ProductDAO();
+	private final ProductDAO productDAO = new ProductDAO();
 	public static final String SHOPPING_CART = "shoppingCart";
 	public static final String ADMIN_USER = "isAdmin";
 	public static final String USER = "user";

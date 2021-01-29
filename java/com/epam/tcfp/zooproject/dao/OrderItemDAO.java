@@ -17,7 +17,7 @@ public class OrderItemDAO {
 	public static final String SQL_STATE = "SQL State: ";
 	public static final String EXCEPTION_MSG = "SQL Exception!!!";	
 	
-	private static final String QUERY_INSERT = "INSERT INTO `order_item` (`order`, `product`, `price`, `quantity`) VALUES (?, ?, ?, ?);";		
+	private static final String QUERY_INSERT = "INSERT INTO order_item (`order`, product, price, quantity) VALUES (?, ?, ?, ?);";		
 
 	public int insertOrderItem(OrderItem orderItem) {
 		int result = 0;

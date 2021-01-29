@@ -13,11 +13,9 @@ import com.epam.tcfp.zooproject.dao.UserDAO;
 import com.epam.tcfp.zooproject.entity.OrderInfo;
 import com.epam.tcfp.zooproject.entity.User;
 
-
-
 public class GetUserOrderHistoryService implements Service {
-	private OrderInfoDAO orderInfoDAO = new OrderInfoDAO();
-    private UserDAO userDAO = new UserDAO();
+	private final OrderInfoDAO orderInfoDAO = new OrderInfoDAO();
+    private final UserDAO userDAO = new UserDAO();
     public static final String USER = "user";
     public static final String USER_ORDERS = "userOrders";
 

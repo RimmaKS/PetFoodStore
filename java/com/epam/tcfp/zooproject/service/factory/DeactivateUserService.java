@@ -12,7 +12,7 @@ import com.epam.tcfp.zooproject.dao.UserDAO;
 import com.epam.tcfp.zooproject.entity.User;
 
 public class DeactivateUserService implements Service {
-	private UserDAO userDAO = new UserDAO();
+	private final UserDAO userDAO = new UserDAO();
 	public static final String USER_TO_DEACTIVATE = "userToDeactivate";
 	public static final String DEACTIVATION_RESULT = "deactivationResult";
 

@@ -26,15 +26,12 @@ public class Pool {
 	private String USER;
 	private String PASSWORD;
 
-	public static Pool getInstance() {
-		if (INSTANCE == null)
-			synchronized (Pool.class) {
-				if (INSTANCE == null) {
-					INSTANCE = new Pool();
-				}
-			}
+	public static synchronized Pool getInstance() {
+		if (INSTANCE == null) {
+			INSTANCE = new Pool();
+		}			
 		return INSTANCE;
-	}
+	}	
 
 	private Pool() {
 		Properties properties = new Properties();
@@ -84,6 +81,7 @@ public class Pool {
 				logger.log(Level.ERROR, EXCEPTION_MSG);
 				logger.info(ERROR_MESSAGE + e.getMessage());
 				logger.info(EXCEPTION_MSG_CONNECTION);
+				Thread.currentThread().interrupt();
 			} finally {
 				return getConnection();
 			}

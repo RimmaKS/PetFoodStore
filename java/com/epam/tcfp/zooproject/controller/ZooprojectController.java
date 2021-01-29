@@ -20,6 +20,9 @@ import com.epam.tcfp.zooproject.service.factory.*;
 public class ZooprojectController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private final ServiceFactory SERVICE_FACTORY = ServiceFactory.getInstance();
+	public static final String EXCEPTION_MSG = "Exception in the Controller!";
+	public static final String ERROR_TYPE = "Error Type: ";
+	public static final String ERROR_MESSAGE = "Error Message: ";
 	static Logger logger = LogManager.getLogger();
 
 	@Override
@@ -30,9 +33,9 @@ public class ZooprojectController extends HttpServlet {
         try {
           currentService.execute(req, resp);          
         } catch (ParseException | SQLException e) {
-			logger.log(Level.ERROR, "Exception in Controller");
-			logger.info(e.getClass().getName());
-			logger.info(e.getMessage());
+			logger.log(Level.ERROR, EXCEPTION_MSG);
+			logger.info(ERROR_TYPE + e.getClass().getName());
+			logger.info(ERROR_MESSAGE + e.getMessage());
         }
       }
 	

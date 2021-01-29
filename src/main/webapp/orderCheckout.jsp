@@ -88,7 +88,7 @@
     <input type="text" 
     	placeholder="<fmt:message key="label.placeholder.zip"/>" 
     	name="zipCode"
-    	required pattern="^[a-zA-Z0-9\-]+$"
+    	required pattern="^[a-zA-Z0-9\-]{1,8}$"
     	title="<fmt:message key="label.order.address.zip"/>" 
     	required="required">   
 		  	
@@ -96,7 +96,7 @@
     <input type="text" 
     	placeholder="<fmt:message key="label.placeholder.country"/>" 
     	name="country"
-    	required pattern="^[a-zA-Z0-9\-]+$"
+    	required pattern="^[a-zA-Z0-9\-]{1,10}$"
     	title="<fmt:message key="label.order.address.country"/>" 
     	required="required">
 
@@ -104,7 +104,7 @@
     <input type="text" 
     	placeholder="<fmt:message key="label.placeholder.region"/>" 
     	name="region"
-    	required pattern="^[a-zA-Z0-9\-]+$"
+    	required pattern="^[a-zA-Z0-9\-]{1,50}$"
     	title="<fmt:message key="label.order.address.region"/>" 
     	required="required">
 
@@ -112,7 +112,7 @@
     <input type="text" 
     	placeholder="<fmt:message key="label.placeholder.city"/>" 
     	name="city"
-    	required pattern="^[a-zA-Z0-9\-\s]+$"
+    	required pattern="^[a-zA-Z0-9\-\s]{1,85}$"
     	title="<fmt:message key="label.order.address.city"/>" 
     	required="required">
     	
@@ -120,7 +120,7 @@
     <input type="text" 
     	placeholder="<fmt:message key="label.placeholder.street"/>" 
     	name="street"
-    	required pattern="^[a-zA-Z0-9\-\s]+$"
+    	required pattern="^[a-zA-Z0-9\-\s]{1,50}$"
     	title="<fmt:message key="label.order.address.street"/>" 
     	required="required">
     
@@ -128,7 +128,7 @@
     <input type="text" 
     	placeholder="<fmt:message key="label.placeholder.building"/>" 
     	name="building"
-    	required pattern="^[a-zA-Z0-9\-]+$"
+    	required pattern="^[a-zA-Z0-9\-]{1,10}$"
     	title="<fmt:message key="label.order.address.building"/>" 
     	required="required">	
     
@@ -136,7 +136,7 @@
     <input type="text" 
     	placeholder="<fmt:message key="label.placeholder.apartment"/>" 
     	name="apartment"
-    	required pattern="^[a-zA-Z0-9\-]+$"
+    	required pattern="^[a-zA-Z0-9\-]{1,10}$"
     	title="<fmt:message key="label.order.address.apartment"/>" 
     	required="required">
     		

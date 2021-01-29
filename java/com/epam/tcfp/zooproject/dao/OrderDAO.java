@@ -25,7 +25,7 @@ public class OrderDAO {
 	public static final String STATUS = "status";
 	public static final String TOTAL = "total";
 
-	private static final String QUERY_INSERT = "INSERT INTO `order` (`user`, `status`, `total`, `delivery_address`) VALUES (?, ?, ?, ?);";
+	private static final String QUERY_INSERT = "INSERT INTO `order` (user, status, total, delivery_address) VALUES (?, ?, ?, ?);";
 	private static final String QUERY_SELECT_ALL = "SELECT * FROM `order`;";
 	private static final String QUERY_UPDATE_STATUS_BY_ID = "UPDATE `order` SET status = ? WHERE id = ?;";
 

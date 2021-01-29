@@ -49,7 +49,7 @@
 			<td>${sessionScope.userData.mobile}</td>
 			<td>${sessionScope.userData.email}</td>
 		<td>
-			<a href="userEdit.jsp"> <img border="0" alt="edituser" src= '<c:url value="${initParam['imageLocation']}editlogo.jpg"/>' width="30" height="30"></a>
+			<a href="userEdit.jsp"> <img border="0" alt="edituser" src= "${pageContext.request.contextPath}/ImageServlet?imageName=editlogo.jpg" width="30" height="30"></a>
 		</td>		
 		</tr>
 </table>		

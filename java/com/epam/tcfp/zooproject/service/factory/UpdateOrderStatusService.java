@@ -12,7 +12,7 @@ import com.epam.tcfp.zooproject.dao.OrderDAO;
 import com.epam.tcfp.zooproject.entity.Order;
 
 public class UpdateOrderStatusService implements Service {
-	private OrderDAO orderDAO = new OrderDAO();
+	private final OrderDAO orderDAO = new OrderDAO();
 	public static final String ORDER_TO_CHANGE = "orderToChange";
 	public static final String ORDER_STATUS = "orderStatus";
 	public static final String ALL_ORDERS = "allOrders";

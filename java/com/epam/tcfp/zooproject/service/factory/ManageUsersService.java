@@ -13,7 +13,7 @@ import com.epam.tcfp.zooproject.dao.UserDAO;
 import com.epam.tcfp.zooproject.entity.User;
 
 public class ManageUsersService implements Service {
-	private UserDAO userDAO = new UserDAO();
+	private final UserDAO userDAO = new UserDAO();
 	public static final String USERS_LIST = "usersList";
 
 	@Override

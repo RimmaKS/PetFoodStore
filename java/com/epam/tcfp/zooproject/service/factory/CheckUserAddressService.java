@@ -13,8 +13,8 @@ import com.epam.tcfp.zooproject.entity.User;
 import com.epam.tcfp.zooproject.entity.UserAddress;
 
 public class CheckUserAddressService implements Service {
-    private UserDAO userDAO = new UserDAO();
-	private UserAddressDAO userAddressDAO = new UserAddressDAO();
+    private final UserDAO userDAO = new UserDAO();
+	private final UserAddressDAO userAddressDAO = new UserAddressDAO();
 	public static final String USER = "user";
 	public static final String ADDRESS = "address";
 	public static final String ADDRESS_STATUS = "addressStatus";

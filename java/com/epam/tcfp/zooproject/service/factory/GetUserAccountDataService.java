@@ -11,7 +11,7 @@ import com.epam.tcfp.zooproject.dao.UserDAO;
 import com.epam.tcfp.zooproject.entity.User;
 
 public class GetUserAccountDataService implements Service {
-	private UserDAO userDAO = new UserDAO();
+	private final UserDAO userDAO = new UserDAO();
 	public static final String USER_DATA = "userData";
 	public static final String USER = "user";
 
